@@ -11,7 +11,9 @@ const ACCESS_TOKEN = 'ACCESS_TOKEN';
 
 export const ContextProvider = ( {children} ) => {
 
-    const [user, setUser] = useState({});
+    const [user, setUser] = useState({
+        name: 'Tuhin'
+    });
     const [token, _setToken] = useState(localStorage.getItem( ACCESS_TOKEN ));
 
     const setToken = (token) => {
