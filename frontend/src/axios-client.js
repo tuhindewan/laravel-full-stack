@@ -3,7 +3,7 @@ import axios from 'axios';
 const ACCESS_TOKEN = 'ACCESS_TOKEN';
 
 const axiosClient = axios.create({
-    baseURL: `${import.meta.env.VITE_API_BASE_URL}/api`,
+    baseURL: `${import.meta.env.VITE_HOST}/api`,
     headers: {
         'Content-Type': 'application/json',
         'Accept': 'application/json'
@@ -11,7 +11,7 @@ const axiosClient = axios.create({
 });
 
 axiosClient.interceptors.request.use(config => {
-    config.headers['Authorization'] = 'Bearer ' + localStorage.getItem(ACCESS_TOKEN);
+    config.headers.Authorization = 'Bearer ' + localStorage.getItem(ACCESS_TOKEN);
     return config;
 });
 
